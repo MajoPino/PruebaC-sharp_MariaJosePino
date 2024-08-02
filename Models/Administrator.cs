@@ -134,8 +134,49 @@ Preferred Payment Method: {Customer.PreferredPaymentMethod}
         }
         else
         {
+            Console.WriteLine(@$"The customer with the document number {identificationNumberInput} does not exist, please verify the information and try again.");
+        }
+    }
+
+    public void DeleteDriver()
+    {
+        Console.Write("Please, enter the document number of the driver you want to delete: ");
+        string? identificationNumberInput = Console.ReadLine();
+        var driver = Drivers.FirstOrDefault(x => x.GetIdentificationNumber() == identificationNumberInput);
+
+        if (driver != null)
+        {
+            Drivers.Remove(driver);
+            Console.WriteLine(@"
+The driver has been deleted successfully!");
+        }
+        else
+        {
             Console.WriteLine(@$"The driver with the document number {identificationNumberInput} does not exist, please verify the information and try again.");
         }
+    }
+
+    public void DeleteCustomer()
+    {
+        Console.Write("Please, enter the document number of the customer you want to delete: ");
+        string? identificationNumberInput = Console.ReadLine();
+        var Customer = Customers.FirstOrDefault(x => x.GetIdentificationNumber() == identificationNumberInput);
+
+        if (Customer != null)
+        {
+            Customers.Remove(Customer);
+            Console.WriteLine(@"
+The customer has been deleted successfully!");
+        }
+        else
+        {
+            Console.WriteLine(@$"The customer with the document number {identificationNumberInput} does not exist, please verify the information and try again.");
+        }
+    }
+
+    public void UpdateLicenseCategory()
+    {
+        
     }
 
     public void AddVehicle(Vehicle vehicle)

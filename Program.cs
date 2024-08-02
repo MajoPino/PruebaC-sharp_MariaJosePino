@@ -102,6 +102,18 @@ void SearchCustomer()
     GoToMenu();
 }
 
+void DeleteDriver()
+{
+    administrator.DeleteDriver();
+    GoToMenu();
+}
+
+void DeleteCustomer()
+{
+    administrator.DeleteCustomer();
+    GoToMenu();
+}
+
 
 void Main()
 {
@@ -114,6 +126,8 @@ Welcome to </TransRiwi>
 4:List all the Customers
 5.Search Driver
 6.Search Customer
+7.Delete Driver
+8.Delete Customer
 0.Exit");
     Console.Write("Please, choose one of the options from above: ");
     int option = Convert.ToInt32(Console.ReadLine());
@@ -150,6 +164,16 @@ Welcome to </TransRiwi>
         case 6:
         Console.Clear();
         SearchCustomer();
+        break;
+
+        case 7:
+        Console.Clear();
+        DeleteDriver();
+        break;
+
+        case 8:
+        Console.Clear();
+        DeleteCustomer();
         break;
 
         case 0:
