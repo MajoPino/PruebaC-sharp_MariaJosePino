@@ -32,11 +32,13 @@ public class Administrator
             string? email = Convert.ToString(Driver.GetEmail());
             string? phone = Convert.ToString(Driver.GetPhoneNumber());
             string? address = Convert.ToString(Driver.GetAddress());
+            string? age = Convert.ToString(Driver.ReturnAge());
 
             Console.WriteLine(@$"
 Driver's Name: {name} {lastname}
 Identification Document: {typeDocument} {identificationNumber}
 Birth Date: {birthDate}
+Age: {age} years old
 Email: {email}
 Phone Number: {phone}
 Address: {address}
@@ -58,11 +60,13 @@ Driving Experience: {Driver.DrivingExperience} years
             string? email = Convert.ToString(Customer.GetEmail());
             string? phone = Convert.ToString(Customer.GetPhoneNumber());
             string? address = Convert.ToString(Customer.GetAddress());
+            string? age = Convert.ToString(Customer.ReturnAge());
 
             Console.WriteLine(@$"
 Customer's Name: {name} {lastname}
 Identification Document: {typeDocument} {identificationNumber}
 Birth Date: {birthDate}
+Age: {age} years old
 Email: {email}
 Phone Number: {phone}
 Address: {address}
@@ -87,11 +91,13 @@ Preferred Payment Method: {Customer.PreferredPaymentMethod}
             string? email = Convert.ToString(driver.GetEmail());
             string? phone = Convert.ToString(driver.GetPhoneNumber());
             string? address = Convert.ToString(driver.GetAddress());
+            string? age = Convert.ToString(driver.ReturnAge());
 
             Console.WriteLine(@$"
 Driver's Name: {name} {lastname}
 Identification Document: {typeDocument} {identificationNumber}
 Birth Date: {birthDate}
+Age: {age} years old
 Email: {email}
 Phone Number: {phone}
 Address: {address}
@@ -120,11 +126,13 @@ Driving Experience: {driver.DrivingExperience} years
             string? email = Convert.ToString(Customer.GetEmail());
             string? phone = Convert.ToString(Customer.GetPhoneNumber());
             string? address = Convert.ToString(Customer.GetAddress());
+            string? age = Convert.ToString(Customer.ReturnAge());
 
             Console.WriteLine(@$"
 Customer's Name: {name} {lastname}
 Identification Document: {typeDocument} {identificationNumber}
 Birth Date: {birthDate}
+Age: {age} years old
 Email: {email}
 Phone Number: {phone}
 Address: {address}
@@ -192,6 +200,83 @@ The license category has been updated succesfully!");
         else
         {
             Console.WriteLine(@$"The driver with the document number {identificationNumberInput} does not exist, please verify the information and try again.");
+        }
+    }
+
+    public void AddExperience()
+    {
+        Console.Write("Please, enter the document number of the driver you want to update their driving experience: ");
+        string? identificationNumberInput = Console.ReadLine();
+        var Driver = Drivers.FirstOrDefault(x => x.GetIdentificationNumber() == identificationNumberInput);
+
+        if (Driver != null)
+        {
+            Console.Write("Please, enter the new driver's driving experience (in years): ");
+            int years = Convert.ToInt32(Console.ReadLine());
+
+            Driver.AddExperience(years);
+            Console.WriteLine(@"
+The driver's driving experience has been updated succesfully!");
+        }
+        else
+        {
+            Console.WriteLine(@$"The driver with the document number {identificationNumberInput} does not exist, please verify the information and try again.");
+        }
+    }
+
+    public void UsersElderThan30()
+    {
+        List<Driver> newDrivers = Drivers.Where(x => x.ReturnAge() >= 30).ToList();
+        List<Customer> newCustomers = Customers.Where(x => x.ReturnAge() >= 30).ToList();
+
+        foreach (var Driver in newDrivers)
+        {
+            string? name = Convert.ToString(Driver.GetName());
+            string? lastname = Convert.ToString(Driver.GetLastName());
+            string? typeDocument = Convert.ToString(Driver.GetTypeDocument());
+            string? identificationNumber = Convert.ToString(Driver.GetIdentificationNumber());
+            string? birthDate = Convert.ToString(Driver.GetBirthDate());
+            string? email = Convert.ToString(Driver.GetEmail());
+            string? phone = Convert.ToString(Driver.GetPhoneNumber());
+            string? address = Convert.ToString(Driver.GetAddress());
+            string? age = Convert.ToString(Driver.ReturnAge());
+
+            Console.WriteLine(@$"
+Driver's Name: {name} {lastname}
+Identification Document: {typeDocument} {identificationNumber}
+Birth Date: {birthDate}
+Age: {age} years old
+Email: {email}
+Phone Number: {phone}
+Address: {address}
+License: {Driver.LicenseCategory} {Driver.LicenseNumber}
+Driving Experience: {Driver.DrivingExperience} years
+");
+        }
+
+        foreach (var Customer in newCustomers)
+        {
+            string? name = Convert.ToString(Customer.GetName());
+            string? lastname = Convert.ToString(Customer.GetLastName());
+            string? typeDocument = Convert.ToString(Customer.GetTypeDocument());
+            string? identificationNumber = Convert.ToString(Customer.GetIdentificationNumber());
+            string? birthDate = Convert.ToString(Customer.GetBirthDate());
+            string? email = Convert.ToString(Customer.GetEmail());
+            string? phone = Convert.ToString(Customer.GetPhoneNumber());
+            string? address = Convert.ToString(Customer.GetAddress());
+            string? age = Convert.ToString(Customer.ReturnAge());
+
+            Console.WriteLine(@$"
+Customer's Name: {name} {lastname}
+Identification Document: {typeDocument} {identificationNumber}
+Birth Date: {birthDate}
+Age: {age} years old
+Email: {email}
+Phone Number: {phone}
+Address: {address}
+Membership Level: {Customer.MembershipLevel}
+Preferred Payment Method: {Customer.PreferredPaymentMethod}
+");
         }
     }
 

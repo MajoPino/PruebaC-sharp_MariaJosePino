@@ -51,7 +51,13 @@ namespace PruebaC_sharp_MariaJosePino.Models
         {
             return Address;
         }
-        
+
+        public int ReturnAge()
+        {
+            int Age = CalculateAge();
+            return Age;
+        }
+
 
         public void UpdateLicenseCategory(string newCategory)
         {

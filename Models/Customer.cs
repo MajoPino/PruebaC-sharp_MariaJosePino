@@ -49,6 +49,12 @@ namespace PruebaC_sharp_MariaJosePino.Models;
             return Address;
         }
 
+        public int ReturnAge()
+        {
+            int Age = CalculateAge();
+            return Age;
+        }
+
         public void UpdateMembershipLevel()
         {
             Console.Write(@$"Please, enter the new membership level: ");

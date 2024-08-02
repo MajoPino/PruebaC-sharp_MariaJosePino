@@ -47,7 +47,7 @@ Address: {Address}
             int birthDateYear = BirthDate.Year;
             int thisYear = DateTime.Now.Year;
 
-            int age = birthDateYear - thisYear;
+            int age = thisYear - birthDateYear;
 
             return age;
 
