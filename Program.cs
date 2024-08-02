@@ -90,6 +90,18 @@ Customer added successfully!");
     GoToMenu();
 }
 
+void SearchDriver()
+{
+    administrator.SearchDriver();
+    GoToMenu();
+}
+
+void SearchCustomer()
+{
+    administrator.SearchCustomer();
+    GoToMenu();
+}
+
 
 void Main()
 {
@@ -100,6 +112,8 @@ Welcome to </TransRiwi>
 2.Add a new Customer
 3.List all the Drivers
 4:List all the Customers
+5.Search Driver
+6.Search Customer
 0.Exit");
     Console.Write("Please, choose one of the options from above: ");
     int option = Convert.ToInt32(Console.ReadLine());
@@ -126,6 +140,16 @@ Welcome to </TransRiwi>
         Console.Clear();
         ShowCustomersInfo();
         GoToMenu();
+        break;
+
+        case 5:
+        Console.Clear();
+        SearchDriver();
+        break;
+
+        case 6:
+        Console.Clear();
+        SearchCustomer();
         break;
 
         case 0:
