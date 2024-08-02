@@ -280,6 +280,22 @@ Preferred Payment Method: {Customer.PreferredPaymentMethod}
         }
     }
 
+    public void UpdateMembershipLevel()
+    {
+        Console.Write("Please, enter the document number of the customer you want to update the membership lever: ");
+        string? identificationNumberInput = Console.ReadLine();
+        var Customer = Customers.FirstOrDefault(x => x.GetIdentificationNumber() == identificationNumberInput);
+
+        if (Customer != null)
+        {
+            Customer.UpdateMembershipLevel();
+        }
+        else
+        {
+            Console.WriteLine(@$"The customer with the document number {identificationNumberInput} does not exist, please verify the information and try again.");
+        }
+    }
+
     public void AddVehicle(Vehicle vehicle)
     {
         Vehicles.Add(vehicle);

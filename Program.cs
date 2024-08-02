@@ -126,6 +126,12 @@ void AddExperience()
     GoToMenu();
 }
 
+void UpdateMembershipLevel()
+{
+    administrator.UpdateMembershipLevel();
+    GoToMenu();
+}
+
 void UsersElderThan30()
 {
     administrator.UsersElderThan30();
@@ -147,7 +153,8 @@ Welcome to </TransRiwi>
 8.Delete Customer
 9.Update a Driver's license category
 10.Update a Driver's driving experience time
-11.Show Users that are elder than 30
+11.Update a Customer's membership level
+12.Show Users that are elder than 30
 0.Exit");
     Console.Write("Please, choose one of the options from above: ");
     int option = Convert.ToInt32(Console.ReadLine());
@@ -207,6 +214,11 @@ Welcome to </TransRiwi>
         break;
 
         case 11:
+        Console.Clear();
+        UpdateMembershipLevel();
+        break;
+
+        case 12:
         Console.Clear();
         UsersElderThan30();
         break;
