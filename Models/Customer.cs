@@ -16,6 +16,39 @@ namespace PruebaC_sharp_MariaJosePino.Models;
             PreferredPaymentMethod = preferredPaymentMethod;
         }
 
+        public string? GetName()
+        {
+            return Name;
+        }
+        public string? GetLastName()
+        {
+            return LastName;
+        }
+        public string? GetTypeDocument()
+        {
+            return TypeDocument;
+        }
+        public string? GetIdentificationNumber()
+        {
+            return IdentificationNumber;
+        }
+        public DateOnly GetBirthDate()
+        {
+            return BirthDate;
+        }
+        public string? GetEmail()
+        {
+            return Email;
+        }
+        public string? GetPhoneNumber()
+        {
+            return PhoneNumber;
+        }
+        public string? GetAddress()
+        {
+            return Address;
+        }
+
         public void UpdateMembershipLevel()
         {
             Console.Write(@$"Please, enter the new membership level: ");
@@ -23,4 +56,5 @@ namespace PruebaC_sharp_MariaJosePino.Models;
             Console.WriteLine(@$"
 Membership level successfully updated!");
         }
+
     }

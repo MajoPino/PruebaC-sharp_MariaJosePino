@@ -30,6 +30,7 @@ namespace PruebaC_sharp_MariaJosePino.Models;
             Address = address;
         }
 
+
         protected void ShowDetails()
         {
             Console.WriteLine(@$"Full Name: {Name} {LastName}
@@ -37,7 +38,8 @@ Identification Number: {TypeDocument} {IdentificationNumber}
 Birth Date: {BirthDate.Year}
 Email: {Email}
 Phone Number: {PhoneNumber}
-Address: {Address}");
+Address: {Address}
+");
         }
 
         protected int CalculateAge()

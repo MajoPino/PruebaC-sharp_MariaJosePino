@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
 namespace PruebaC_sharp_MariaJosePino.Models
@@ -17,6 +18,40 @@ namespace PruebaC_sharp_MariaJosePino.Models
             LicenseCategory = licenseCategory;
             DrivingExperience = drivingExperience;
         }
+
+        public string? GetName()
+        {
+            return Name;
+        }
+        public string? GetLastName()
+        {
+            return LastName;
+        }
+        public string? GetTypeDocument()
+        {
+            return TypeDocument;
+        }
+        public string? GetIdentificationNumber()
+        {
+            return IdentificationNumber;
+        }
+        public DateOnly GetBirthDate()
+        {
+            return BirthDate;
+        }
+        public string? GetEmail()
+        {
+            return Email;
+        }
+        public string? GetPhoneNumber()
+        {
+            return PhoneNumber;
+        }
+        public string? GetAddress()
+        {
+            return Address;
+        }
+
 
         public void UpdateLicenseCategory(string newCategory)
         {
