@@ -12,6 +12,75 @@ administrator.AddCustomer(new Customer("Milton", "Rìos", "cc", "16377534", new 
 administrator.AddCustomer(new Customer("Carolina", "Rubio", "cc", "93472713", new DateOnly(1974,12,25), "carorubio@gmail.com", "3592935748", "Cra #82 7024", "Plus", "Paypal"));
 administrator.AddCustomer(new Customer("Sergio", "Vargas", "cc", "16573434", new DateOnly(1987,04,30), "sergio22@gmail.com", "3338463639", "Cra #02 4932", "UltraPlus", "Tarjeta de Crèdito"));
 
-/* administrator.ShowDriversInfo(); */
+void GoToMenu()
+{
+    Console.WriteLine(@"
+Please, press any key to return to the menu.");
+    Console.ReadKey();
+    Main();
+}
 
-administrator.ShowCustomersInfo();
+void ShowDriversInfo()
+{
+    administrator.ShowDriversInfo();
+}
+
+void ShowCustomersInfo()
+{
+    administrator.ShowCustomersInfo();
+}
+
+
+void Main()
+{
+    Console.Clear();
+    Console.WriteLine(@$"
+Welcome to </TransRiwi>
+1.Add a new Driver
+2.Add a new Customer
+3.List all the Drivers
+4:List all the Customers
+0.Exit");
+    Console.Write("Please, choose one of the options from above: ");
+    int option = Convert.ToInt32(Console.ReadLine());
+
+    switch (option)
+    {
+        case 1:
+        Console.Clear();
+        Console.WriteLine("Work in progress... {}");
+        GoToMenu();
+        break;
+
+        case 2:
+        Console.Clear();
+        Console.WriteLine("Work in progress...");
+        GoToMenu();
+        break;
+
+        case 3:
+        Console.Clear();
+        ShowDriversInfo();
+        GoToMenu();
+        break;
+
+        case 4:
+        Console.Clear();
+        ShowCustomersInfo();
+        GoToMenu();
+        break;
+
+        case 0:
+        Console.Clear();
+        Console.WriteLine("Thanks for using the program!");
+        Environment.Exit(0);
+        break;
+
+
+        default:
+        Main();
+        break;
+    }
+}
+
+Main();
