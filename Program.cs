@@ -114,6 +114,11 @@ void DeleteCustomer()
     GoToMenu();
 }
 
+void UpdateLicenseCategory()
+{
+    administrator.UpdateLicenseCategory();
+    GoToMenu();
+}
 
 void Main()
 {
@@ -128,6 +133,7 @@ Welcome to </TransRiwi>
 6.Search Customer
 7.Delete Driver
 8.Delete Customer
+9.Update a Driver's license category
 0.Exit");
     Console.Write("Please, choose one of the options from above: ");
     int option = Convert.ToInt32(Console.ReadLine());
@@ -174,6 +180,11 @@ Welcome to </TransRiwi>
         case 8:
         Console.Clear();
         DeleteCustomer();
+        break;
+
+        case 9:
+        Console.Clear();
+        UpdateLicenseCategory();
         break;
 
         case 0:

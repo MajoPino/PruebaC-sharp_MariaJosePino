@@ -176,7 +176,23 @@ The customer has been deleted successfully!");
 
     public void UpdateLicenseCategory()
     {
-        
+        Console.Write("Please, enter the document number of the driver you want to update their license category: ");
+        string? identificationNumberInput = Console.ReadLine();
+        var Driver = Drivers.FirstOrDefault(x => x.GetIdentificationNumber() == identificationNumberInput);
+
+        if (Driver != null)
+        {
+            Console.Write("Please, enter the new driver's license category: ");
+            string? newCategory = Console.ReadLine();
+
+            Driver.UpdateLicenseCategory(newCategory);
+            Console.WriteLine(@"
+The license category has been updated succesfully!");
+        }
+        else
+        {
+            Console.WriteLine(@$"The driver with the document number {identificationNumberInput} does not exist, please verify the information and try again.");
+        }
     }
 
     public void AddVehicle(Vehicle vehicle)
