@@ -296,8 +296,21 @@ Preferred Payment Method: {Customer.PreferredPaymentMethod}
         }
     }
 
-    public void AddVehicle(Vehicle vehicle)
+    public void AddVehicle()
     {
-        Vehicles.Add(vehicle);
+        Console.WriteLine("Please, enter the new Vehicle's Id: ");
+        int Id = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Please, enter the new Vehicle's Plate: ");
+        string? Plate = Console.ReadLine();
+        Console.WriteLine("Please, enter the new Vehicle's Type: ");
+        string? Type = Console.ReadLine();
+        Console.WriteLine("Please, enter the new Vehicle's Serial Number: ");
+        string? SerialNumber = Console.ReadLine();
+        Console.WriteLine("Please, enter the new Vehicle's People Capacity: ");
+        byte PeopleCapacity = Convert.ToByte(Console.ReadLine());
+        Console.WriteLine("Please, enter the new Vehicle's Owner's Identification Number: ");
+        string? identificationNumberInput = Console.ReadLine();
+        Driver driver = Drivers.FirstOrDefault(x => x.GetIdentificationNumber() == identificationNumberInput);
+        Vehicles.Add(new Vehicle(Id, Plate, Type, SerialNumber, PeopleCapacity, driver));
     }
 }
