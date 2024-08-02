@@ -30,6 +30,66 @@ void ShowCustomersInfo()
     administrator.ShowCustomersInfo();
 }
 
+void AddDriver()
+{
+    Console.WriteLine(@$"Please, enter the new Driver's name: ");
+    string? name = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Driver's last name: ");
+    string? lastName = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Driver's document type: ");
+    string? typeDocument = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Driver's document number: ");
+    string? identificationNumber = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Driver's birth date: ");
+    DateOnly birthDate = DateOnly.Parse(Console.ReadLine());
+    Console.WriteLine(@"Please, enter the new Driver's email: ");
+    string? email = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Driver's phone number: ");
+    string? phoneNumber = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Driver's address: ");
+    string? address = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Driver's license number: ");
+    string? licenseNumber = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Driver's license category: ");
+    string? licenseCategory = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Driver's number of years of driving experience: ");
+    int drivingExperience = Convert.ToInt32(Console.ReadLine());
+
+    administrator.AddDriver(new Driver(name, lastName, typeDocument, identificationNumber, birthDate, email, phoneNumber, address, licenseNumber, licenseCategory, drivingExperience));
+    Console.WriteLine(@"
+Driver added successfully!");
+    GoToMenu();
+}
+
+void AddCustomer()
+{
+    Console.WriteLine(@$"Please, enter the new Customer's name: ");
+    string? name = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Customer's last name: ");
+    string? lastName = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Customer's document type: ");
+    string? typeDocument = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Customer's document number: ");
+    string? identificationNumber = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Customer's birth date: ");
+    DateOnly birthDate = DateOnly.Parse(Console.ReadLine());
+    Console.WriteLine(@"Please, enter the new Customer's email: ");
+    string? email = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Customer's phone number: ");
+    string? phoneNumber = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Customer's address: ");
+    string? address = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Customer's membership level: ");
+    string? membershipLevel = Console.ReadLine();
+    Console.WriteLine(@$"Please, enter the new Customer's preferred payment method: ");
+    string? preferredPaymentMethod = Console.ReadLine();
+
+    administrator.AddCustomer(new Customer(name, lastName, typeDocument, identificationNumber, birthDate, email, phoneNumber, address, membershipLevel, preferredPaymentMethod));
+    Console.WriteLine(@"
+Customer added successfully!");
+    GoToMenu();
+}
+
 
 void Main()
 {
@@ -48,14 +108,12 @@ Welcome to </TransRiwi>
     {
         case 1:
         Console.Clear();
-        Console.WriteLine("Work in progress... {}");
-        GoToMenu();
+        AddDriver();
         break;
 
         case 2:
         Console.Clear();
-        Console.WriteLine("Work in progress...");
-        GoToMenu();
+        AddCustomer();
         break;
 
         case 3:
